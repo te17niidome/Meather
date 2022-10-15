@@ -64,10 +64,6 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
     private LocationManager manager;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity {
     //再生の準備
     MediaPlayer song = new MediaPlayer();
     //音楽情報
@@ -81,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 //        choseMusic("晴れ", "春", "");
         System.out.println(playList);
-    }
+
 
         manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
@@ -198,8 +194,24 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void getWeather(View view) {
-
+//    public void getWeather(View view) {
+//
+//        timer.scheduleAtFixedRate(
+//                new TimerTask()
+//                {
+//                    @Override
+//                    public void run()
+//                    {
+//                        System.out.println("もう終わりだ");
+//                        if(cnt >= 1){
+//                            loadweather();
+//                        }
+//                    }
+//                }, 10, 10000);
+//    }
+    //音楽をフィルタリングする
+//    public void choseMusic(String weather, String season, String comment ) {
+    public void choseMusic(View view){
         timer.scheduleAtFixedRate(
                 new TimerTask()
                 {
@@ -212,10 +224,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 }, 10, 10000);
-    }
-    //音楽をフィルタリングする
-//    public void choseMusic(String weather, String season, String comment ) {
-    public void choseMusic(View view){
+
         String weather = "晴れ";
         String season = "春";
         String comment = "";
