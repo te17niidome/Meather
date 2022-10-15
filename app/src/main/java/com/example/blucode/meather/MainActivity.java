@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
     private OkHttpClient mClient;
 
     TextView textView;
-    Button button01;
+    ImageButton imageButton2;
 
     public static double Lati;
     public static double Long;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
 
         // UIコンポーネント
 //        textView = findViewById(R.id.text_view);
-        button01 = findViewById(R.id.button01);
+        imageButton2 = findViewById(R.id.imageButton2);
     }
     @Override
     protected void onResume() {

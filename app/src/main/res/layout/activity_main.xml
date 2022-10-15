@@ -11,23 +11,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
+
+
+        <!--           android:layout_alignParentTop="true"-->
 
 
         <ImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="389dp"
             android:layout_marginTop="0dp"
             android:adjustViewBounds="true"
             android:src="@drawable/music_home_girl" />
 
-        <!--           android:layout_alignParentTop="true"-->
-
-
         <Space
             android:layout_width="match_parent"
-            android:layout_height="250dp">
+            android:layout_height="161dp">
 
         </Space>
 
@@ -58,6 +59,7 @@
 
             <ImageButton
                 android:id="@+id/imageButton2"
+                android:onClick="getWeather"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@color/white"
@@ -82,6 +84,7 @@
                 android:layout_height="100dp"
                 android:background="@color/white"
                 android:scaleType="fitCenter"
+
                 android:layout_gravity="center_horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
