@@ -11,24 +11,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#000000"
         android:orientation="vertical"
-        >
+        tools:ignore="MissingConstraints">
 
 
         <!--           android:layout_alignParentTop="true"-->
 
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="389dp"
             android:layout_marginTop="0dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/music_home_girl" />
+            android:src="@drawable/icon_demo"
+            app:shapeAppearanceOverlay="@style/circleImageView" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="161dp">
+            android:layout_height="96dp">
 
         </Space>
 
@@ -40,59 +42,68 @@
 
             <ImageButton
                 android:id="@+id/imageButton"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@color/white"
-                android:scaleType="fitCenter"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="1"
+                android:background="@color/black"
+                android:rotationY="-180"
+                android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/skip_before_draw" />
+                app:srcCompat="@drawable/skip_after_draw" />
+
             <Space
                 android:layout_width="50dp"
-                android:layout_height="250dp">
+                android:layout_height="250dp"
+                android:layout_weight="1">
 
             </Space>
 
             <ImageButton
                 android:id="@+id/imageButton2"
-                android:onClick="getWeather"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@color/white"
-                android:scaleType="fitCenter"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:background="@color/black"
+                android:onClick="getWeather"
+                android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/start_drow" />
+                app:srcCompat="@drawable/start_draw" />
 
             <Space
                 android:layout_width="50dp"
-                android:layout_height="250dp">
+                android:layout_height="250dp"
+                android:layout_weight="1">
 
             </Space>
 
             <ImageButton
                 android:id="@+id/imageButton3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@color/white"
-                android:scaleType="fitCenter"
-
+                android:layout_width="40dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
+
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:background="@color/black"
+                android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.857"
-                app:srcCompat="@drawable/skip_after_drow" />
+                app:srcCompat="@drawable/skip_after_draw" />
 
         </LinearLayout>
     </LinearLayout>
