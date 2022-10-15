@@ -22,6 +22,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,12 +42,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class MainActivity extends AppCompatActivity implements LocationListener {
+public class MainActivity extends AppCompatActivity implements  LocationListener {
 
     private OkHttpClient mClient;
 
     TextView textView;
-    Button button01;
+    ImageButton imageButton2;
     Timer timer;
 
     public static double Lati;
@@ -54,7 +55,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public static int cnt = 0;
     private LocationManager manager;
 
-    final static String TAG = "ReceivedActivity";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,8 +65,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         mClient = new OkHttpClient();
 
         // UIコンポーネント
-        textView = findViewById(R.id.text_view);
-        button01 = findViewById(R.id.button01);
+//        textView = findViewById(R.id.text_view);
+        imageButton2 = findViewById(R.id.imageButton2);
 
         // 定期呼び出し
         timer = new Timer();
@@ -142,6 +142,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         //リクエストを作成
         Request request = new Request.Builder().url(url).build();
         Call call = mClient.newCall(request);
+
+//        System.
 
         // リクエストを非同期実行
         call.enqueue(new Callback() {
