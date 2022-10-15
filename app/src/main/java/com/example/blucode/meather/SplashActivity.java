@@ -38,7 +38,7 @@ public class SplashActivity extends AppCompatActivity {
         @Override
         public void run() {
             //画面遷移処理
-            Intent intent = new Intent(SplashActivity.this, Loc_TestActivity.class);
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
             SplashActivity.this.finish();       //アクティビティを破棄。
         }
