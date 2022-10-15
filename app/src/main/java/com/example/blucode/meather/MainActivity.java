@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
             addWeather();
         }
 
-//        System.out.println("どんえーん");
+
 
 
         //TextViewに表示
