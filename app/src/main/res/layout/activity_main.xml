@@ -22,7 +22,7 @@
             android:adjustViewBounds="true"
             android:src="@drawable/music_home_girl" />
 
-        <!--            android:layout_alignParentTop="true"-->
+        <!--           android:layout_alignParentTop="true"-->
 
 
         <Space
