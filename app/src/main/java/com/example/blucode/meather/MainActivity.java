@@ -1,11 +1,15 @@
 package com.example.blucode.meather;
 
+import static androidx.core.content.PackageManagerCompat.LOG_TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -14,6 +18,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -25,6 +31,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -32,18 +41,20 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class MainActivity extends AppCompatActivity implements  LocationListener {
+public class MainActivity extends AppCompatActivity implements LocationListener {
 
     private OkHttpClient mClient;
 
     TextView textView;
     Button button01;
+    Timer timer;
 
     public static double Lati;
     public static double Long;
     public static int cnt = 0;
     private LocationManager manager;
 
+    final static String TAG = "ReceivedActivity";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +67,10 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
         // UIコンポーネント
         textView = findViewById(R.id.text_view);
         button01 = findViewById(R.id.button01);
+
+        // 定期呼び出し
+        timer = new Timer();
+
     }
     @Override
     protected void onResume() {
@@ -128,8 +143,6 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
         Request request = new Request.Builder().url(url).build();
         Call call = mClient.newCall(request);
 
-//        System.
-
         // リクエストを非同期実行
         call.enqueue(new Callback() {
             @Override
@@ -160,21 +173,19 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
         });
     }
 
-    private void addWeather(){
-//        textView = findViewById(R.id.text_view);
-        textView.setText("HELLO HELLO HELLO");
-    }
-
     public void getWeather(View view) {
-        if(cnt >= 1){
-            loadweather();
-            addWeather();
-        }
 
-//        System.out.println("どんえーん");
-
-
-        //TextViewに表示
-//        textView.setText("HELLO HELLO HELLO");
+        timer.scheduleAtFixedRate(
+                new TimerTask()
+                {
+                    @Override
+                    public void run()
+                    {
+                        System.out.println("もう終わりだ");
+                        if(cnt >= 1){
+                            loadweather();
+                        }
+                    }
+                }, 10, 10000);
     }
 }
