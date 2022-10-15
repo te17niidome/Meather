@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
         mClient = new OkHttpClient();
 
         // UIコンポーネント
-        textView = findViewById(R.id.text_view);
+//        textView = findViewById(R.id.text_view);
         button01 = findViewById(R.id.button01);
     }
     @Override
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
 
     private void addWeather(){
 //        textView = findViewById(R.id.text_view);
-        textView.setText("HELLO HELLO HELLO");
+//        textView.setText("HELLO HELLO HELLO");
     }
 
     public void getWeather(View view) {
