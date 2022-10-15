@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.view.View;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -23,13 +24,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        choseMusic("晴れ", "春", "");
+//        choseMusic("晴れ", "春", "");
         System.out.println(playList);
-        start();
     }
 
     //音楽をフィルタリングする
-    public void choseMusic(String weather, String season, String comment) {
+//    public void choseMusic(String weather, String season, String comment ) {
+    public void choseMusic(View view){
+        String weather = "晴れ";
+        String season = "春";
+        String comment = "";
         System.out.println("テスト");
 
         //フィルタ後を格納するリスト
@@ -78,21 +82,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 //        playList.add(String.valueOf(R.raw.osanpo))
-
+        start();
     }
 
     //音楽を再生
     public void start(){
-        for(int i=0; i<playList.size(); i++) {
-            song = MediaPlayer.create(this, Integer.parseInt(playList.get(i)));
-            song.start();
-            try{
-                Thread.sleep(playTime.get(i)*10*10*10);
-            }catch (Exception e){
-                System.out.println("エラー");
-            }
-
-        }
+        song = MediaPlayer.create(this, Integer.parseInt(playList.get(0)));
+        song.start();
 
     }
 }
