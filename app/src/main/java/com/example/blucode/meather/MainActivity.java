@@ -2,12 +2,12 @@ package com.example.blucode.meather;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Bundle;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Bundle;
+import android.widget.ImageView;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
             {"旅立ちの時", String.valueOf(R.raw.tabidachi_no_toki), "晴れ", "春", "","189"}};
     List<String> playList = new ArrayList<>();
     List<Integer> playTime = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
