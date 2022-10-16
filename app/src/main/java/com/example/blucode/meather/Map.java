@@ -51,12 +51,12 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
     public void onMapReady( GoogleMap googleMap )
     {
         map_ = googleMap;
-        LatLng Koshi = new LatLng(32.885972, 130.78975);
+        LatLng Nagasaki = new LatLng(32.80220, 129.85445);
         LatLng User;
         Marker user;
 
         if(Lati2 == 0 || Long2 == 0){
-            User = new LatLng(32.885972, 130.78975);
+            User = new LatLng(32.80220, 129.85445);
         }
         else{
             User = new LatLng(Lati2,Long2);

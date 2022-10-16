@@ -50,6 +50,7 @@ public class LocationActivity extends AppCompatActivity implements  LocationList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent intent = getIntent();
         manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         mClient = new OkHttpClient();
@@ -69,15 +70,7 @@ public class LocationActivity extends AppCompatActivity implements  LocationList
 
         manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1, 1, this);
         manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1, 1, this);
-        new Handler().postDelayed(new Runnable() {
-            // Runnable型のインスタンス化と定義
-            @Override
-            public void run() {
 
-                // 遅らせて実行したい処理
-
-            }
-        }, 3000);
     }
     protected void onStop() {
         super.onStop();
@@ -119,18 +112,26 @@ public class LocationActivity extends AppCompatActivity implements  LocationList
     public void onClick(){
         double VerLati = (double)((int)(Lati*1000)/1000.00);
         double VerLong = (double)((int)(Long*1000)/1000.00);
-        //textView.setText(String.valueOf(VerLati)+","+String.valueOf(VerLong));
-        System.out.println(VerLati);
-        System.out.println(VerLong);
         Bundle data = new Bundle();
         Bundle InLati = new Bundle();
         Bundle InLong = new Bundle();
-        Intent intent = new Intent(this,Map.class);
-        InLati.putString("InLati",String.valueOf(Lati));
-        InLong.putString("InLong",String.valueOf(Long));
-        intent.putExtras(InLati);
-        intent.putExtras(InLong);
-        startActivity(intent);
+        //textView.setText(String.valueOf(VerLati)+","+String.valueOf(VerLong));
+        if(cnt>=1){
+            if(((32.800 <= VerLati && VerLati <= 32.805) && (129.850 <= VerLong && VerLong <= 130.850 ))){
+                Intent intent = new Intent(this,Map.class);
+                InLati.putString("InLati",String.valueOf(Lati));
+                InLong.putString("InLong",String.valueOf(Long));
+                System.out.println(InLati);
+                System.out.println(InLong);
+                intent.putExtras(InLati);
+                intent.putExtras(InLong);
+                startActivity(intent);
+            }
+        }
+
+        System.out.println(VerLati);
+        System.out.println(VerLong);
+
     }
 
 
