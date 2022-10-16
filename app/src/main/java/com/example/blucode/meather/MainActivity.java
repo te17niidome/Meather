@@ -67,10 +67,13 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
     //再生の準備
     MediaPlayer song = new MediaPlayer();
     //音楽情報
-    String musicList[][] = {{"お散歩", String.valueOf(R.raw.osanpo), "晴れ", "春", "","60"},
-            {"旅立ちの時", String.valueOf(R.raw.tabidachi_no_toki), "晴れ", "春", "","189"}};
+    String musicList[][] = {{"お散歩", String.valueOf(R.raw.osanpo), "Clean", "春", "","60"},
+            {"旅立ちの時", String.valueOf(R.raw.tabidachi_no_toki), "Clean", "春", "","189"},
+            {"収穫祭",String.valueOf(R.raw.shukakusai),"Clouds","秋","","116"}};
     List<String> playList = new ArrayList<>();
     List<Integer> playTime = new ArrayList<>();
+    String weather;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
 
         // 定期呼び出し
         timer = new Timer();
+        loadweather();
 
     }
     @Override
@@ -186,6 +190,8 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
                     System.out.println(weatherArray.getJSONObject(0));
                     JSONObject weatherObject = weatherArray.getJSONObject(0);
                     System.out.println(weatherObject.getString("id"));
+                    System.out.println(weatherObject.getString("main"));
+                    weather = weatherObject.getString("main");
                     // *******************************************************
                 } catch (JSONException e){
                     e.printStackTrace();
@@ -224,9 +230,25 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
                         }
                     }
                 }, 10, 10000);
-
-        String weather = "晴れ";
-        String season = "春";
+        String season;
+        Calendar cal = Calendar.getInstance();
+        int month = cal.get(Calendar.MONTH) + 1;
+        System.out.println(month);
+        if((month%12)>=3&&(month%12)<=5){
+            season = "春";
+        }
+          else if((month%12)>=6 && (month%12)<=8){
+            season = "夏";
+        }
+        else if((month%12)>=9 && (month%12)<=11){
+            season = "秋";
+        }
+        else{
+            season = "冬";
+        }
+        System.out.println("季節:"+ season);
+//        weather ="Clean";
+        System.out.println("天候:" + weather);
         String comment = "";
         System.out.println("テスト");
 
