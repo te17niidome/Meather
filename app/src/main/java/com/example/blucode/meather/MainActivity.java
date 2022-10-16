@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
         });
     }
 
-    //    public void getWeather(View view) {
+//    public void getWeather(View view) {
 //
 //        timer.scheduleAtFixedRate(
 //                new TimerTask()
