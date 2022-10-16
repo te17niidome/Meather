@@ -33,7 +33,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class LocationActivity extends AppCompatActivity implements  LocationListener {
+public class LocationActivity extends AppCompatActivity implements LocationListener {
 
     private OkHttpClient mClient;
 
@@ -48,7 +48,7 @@ public class LocationActivity extends AppCompatActivity implements  LocationList
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_location);
 
         Intent intent = getIntent();
         manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -105,24 +105,27 @@ public class LocationActivity extends AppCompatActivity implements  LocationList
 
     public void onBackPressed(){
         // 戻るボタンが押された時
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this,ModeActivity.class);
         startActivity(intent);
     }
 
-    public void onClick(){
+    public void onClick(View view){
         double VerLati = (double)((int)(Lati*1000)/1000.00);
         double VerLong = (double)((int)(Long*1000)/1000.00);
+        System.out.println(VerLati);
+        System.out.println(VerLong);
         Bundle data = new Bundle();
         Bundle InLati = new Bundle();
         Bundle InLong = new Bundle();
+        System.out.println(InLati);
+        System.out.println(InLong);
         //textView.setText(String.valueOf(VerLati)+","+String.valueOf(VerLong));
         if(cnt>=1){
             if(((32.800 <= VerLati && VerLati <= 32.805) && (129.850 <= VerLong && VerLong <= 130.850 ))){
-                Intent intent = new Intent(this,Map.class);
+                Intent intent = new Intent(getApplicationContext(),Map.class);
                 InLati.putString("InLati",String.valueOf(Lati));
                 InLong.putString("InLong",String.valueOf(Long));
-                System.out.println(InLati);
-                System.out.println(InLong);
+
                 intent.putExtras(InLati);
                 intent.putExtras(InLong);
                 startActivity(intent);

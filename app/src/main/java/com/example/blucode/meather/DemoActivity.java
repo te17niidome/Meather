@@ -47,7 +47,7 @@ public class DemoActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void onBackPressed(){
         // 戻るボタンが押された時
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this,ModeActivity.class);
         startActivity(intent);
     }
 }
