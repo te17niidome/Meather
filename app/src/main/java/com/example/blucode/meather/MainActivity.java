@@ -67,11 +67,10 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
     //再生の準備
     MediaPlayer song = new MediaPlayer();
     //音楽情報
-    String musicList[][] = {{"お散歩", String.valueOf(R.raw.osanpo), "Clean", "春", "","60"},
-            {"旅立ちの時", String.valueOf(R.raw.tabidachi_no_toki), "Clean", "春", "","189"},
-            {"収穫祭",String.valueOf(R.raw.shukakusai),"Clouds","秋","","116"}};
+    String musicList[][] = {
+            {"春",String.valueOf(R.raw.vivaldy_spring),"Clouds","春",""},
+            {"フーガト短調",String.valueOf(R.raw.fu_ga),"Clouds","秋",""}};
     List<String> playList = new ArrayList<>();
-    List<Integer> playTime = new ArrayList<>();
     String weather;
 
     @Override
@@ -288,13 +287,11 @@ public class MainActivity extends AppCompatActivity implements  LocationListener
             if (comment == "") {                 //コメントがなかった場合はそれ以外のフラグで判断
                 if (weather_frag && season_frag) {
                     playList.add(musicList[i][1]);
-                    playTime.add(Integer.parseInt(musicList[i][5]));
                 }
             }
             //コメントがあった場合はコメントも含めて判断
             else if (comment_frag && weather_frag && season_frag) {
                 playList.add(musicList[i][1]);
-                playTime.add(Integer.parseInt(musicList[i][5]));
             }
         }
 //        playList.add(String.valueOf(R.raw.osanpo))
